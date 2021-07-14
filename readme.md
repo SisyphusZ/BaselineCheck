@@ -1,4 +1,4 @@
-[TOC]
+
 # BaselineCheck使用说明
 
 # 0.部署环境介绍
