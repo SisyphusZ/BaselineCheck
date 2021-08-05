@@ -23,6 +23,12 @@ echo "Author:Sisyphus"
 
 #----------使用说明----------
 
+#----------读取配置文件----------
+config=`cat ./config.conf`
+carID=`echo $config | awk -F "[:]" '{print $1}'`
+targetfilepath = `echo $config | awk -F "[:]" '{print $2}'`
+#----------读取配置文件结束----------
+
 #----------初始化操作----------
 current=`date "+%Y-%m-%d %H:%M:%S"`
 timeStamp=`date -d "$current" +%s`
@@ -59,12 +65,7 @@ savetmp="tee -a ./tmp_file.txt"
 
 #----------初始化操作结束----------
 
-#----------读取配置文件----------
-config = `cat ./config.conf`
-carID = `echo $config | awk -F "[:]" '{print $1}'`
-targetfilepath = `echo $config | awk -F "[:]" '{print $2}'`
 
-#----------读取配置文件结束----------
 
 #----------向日志中写入车辆信息和时间戳----------
 echo "$carID:$currentTimeStamp:NULL;" | $saveresult | $savewarning
@@ -1095,8 +1096,8 @@ rm -rf $rubbish
 
 #若要开启开功能取消下面注释的内容
 
-hostaddr = `cat hosts.txt`
-isupload = `echo $hostaddr | awk -F "[:]" '{print $1}'`
+hostaddr=`cat hosts.txt`
+isupload=`echo $hostaddr | awk -F "[:]" '{print $1}'`
 ipadd=`echo $hostaddr | awk -F "[:]" '{print $2}'`
 port=`echo $hostaddr | awk -F "[:]" '{print $3}'`
 username=`echo $hostaddr | awk -F "[:]" '{print $4}'`
