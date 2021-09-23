@@ -50,7 +50,7 @@ tmp_file="./tmp_file.txt"
 #mkdir $log_file
 #cd $check_file
 
-if [ $(whoami) != "root" ];then
+if [ $(whoami)!="root" ];then
 	echo "安全检查必须使用root账号,否则某些项无法检查"
 	exit 1
 fi
